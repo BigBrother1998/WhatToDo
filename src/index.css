@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-custom {
+  --sb-track-color: #e4e4e7; /* Track color */
+  --sb-thumb-color: #4f46e5; /* Thumb color */
+  --sb-size: 8px; /* Width of the scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: var(--sb-size); /* Width for WebKit browsers */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: var(--sb-track-color); /* Track color */
+  border-radius: 3px; /* Rounded corners for track */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color); /* Thumb color */
+  border-radius: 3px; /* Rounded corners for thumb */
+}
+
+/* Optional: To add space to the right of the scrollbar thumb */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  margin-right: 4px; /* Space to the right of the thumb */
+}
+
+/* Firefox support */
+@supports not selector(::-webkit-scrollbar) {
+  .scrollbar-custom {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #4f46e5 radial-gradient(circle, transparent 1%, #4f46e5 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-size: 100%;
+  transition: background 0s;
+}
+.swal-glass .swal2-title,
+.swal-glass .swal2-content,
+.swal2-html-container {
+  color: 9ca3af !important; /* Ensure title and content text are white */
+}
+
+.custom-swal {
+  background-color: #1f2937 !important; /* Dark background color */
+  border: 2px solid #374151 !important; /* Light gray border */
+  color: #9ca3af !important; /*Optional: make text white for better contrast */
+}
